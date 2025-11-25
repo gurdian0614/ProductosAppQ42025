@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProductosAppQ42025.Views.ProductoView"
+             xmlns:viewModel="clr-namespace:ProductosAppQ42025.ViewModels"
+             xmlns:model="clr-namespace:ProductosAppQ42025.Models"
+             Title="ProductoView">
+
+    <ContentPage.BindingContext>
+        <viewModel:ProductoViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="10" Padding="15">
+            <Label Text="Formulario de Producto" FontSize="Title" FontAttributes="Bold" HorizontalOptions="Center" />
+
+            <Entry Placeholder="Nombre" Text="{Binding ProductoSeleccionado.Nombre}" />
+            <Entry Placeholder="Descripción" Text="{Binding ProductoSeleccionado.Descripcion}" />
+            <Entry Placeholder="Precio" Text="{Binding ProductoSeleccionado.Precio}" />
+
+           <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+            <Button Text="Guardar" FontAttributes="Bold" BackgroundColor="Green" Command="{Binding GuardarActualizarProductoCommand}" />
+            <Button Text="Nuevo" FontAttributes="Bold" BackgroundColor="Blue" Command="{Binding NuevoProductoCommand}" />
+            <Button Text="Eliminar" FontAttributes="Bold" BackgroundColor="Red" Command="{Binding EliminarProductoCommand}" />
+            </HorizontalStackLayout>
+
+           <CollectionView ItemsSource="{Binding ProductoCollection}" SelectedItem="{Binding ProductoSeleccionado, Mode=TwoWay}" SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Producto" >
+                        <Border StrokeShape="RoundRectangle 5" StrokeThickness="1" Margin="5" Padding="10">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Nombre}" FontAttributes="Bold" />
+                                <Label Text="{Binding Descripcion}" FontSize="Small" />
+                                <Label Text="{Binding Precio, StringFormat='Precio: {0:c}'}" FontSize="Small" />
+                            </VerticalStackLayout>
+                        </Border>                        
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView> 
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

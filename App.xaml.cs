@@ -1,4 +1,6 @@
-﻿namespace ProductosAppQ42025;
+﻿using ProductosAppQ42025.Views;
+
+namespace ProductosAppQ42025;
 
 public partial class App : Application
 {
@@ -6,6 +8,6 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new AppShell();
+		MainPage = new ProductoView();
 	}
 }

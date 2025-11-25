@@ -1,4 +1,4 @@
-
+namespace ProductosAppQ42025.Models;
 using SQLite;
 
 [Table("Producto")]

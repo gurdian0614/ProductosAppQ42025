@@ -1,5 +1,6 @@
+namespace ProductosAppQ42025.Services;
 
-
+using ProductosAppQ42025.Models;
 using SQLite;
 
 public class DataBaseService : IDataBaseService

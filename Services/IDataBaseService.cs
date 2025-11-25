@@ -1,3 +1,5 @@
+using ProductosAppQ42025.Models;
+
 public interface IDataBaseService
 {
     public Task<List<Producto>> GetAllProductos();
